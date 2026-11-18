@@ -1,0 +1,151 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOBcCLGZ367v3pY+KrYENWz",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "ir",
+      "display_name": "R"
+    },
+    "language_info": {
+      "name": "R"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/shaynedoone11520/coral_spawning/blob/main/scripts/0_data_clean.ipynb.\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "6wsKoVW5sLYo",
+        "outputId": "e45be541-40fc-4f33-9be8-a4bcba5570e3"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Mounted at /content/drive\n"
+          ]
+        }
+      ],
+      "source": [
+        "from google.colab import drive\n",
+        "drive.mount('/content/drive')"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Step A3 from capstone_promt_2_guide.pdf\n",
+        "my_project_name <- \"coral_spawning\" #be sure to add \"\"\n",
+        "project_path <- file.path(\"/content/drive/MyDrive\", my_project_name)\n",
+        "#The next step creates the folder\n",
+        "dir.create(project_path, showWarnings = FALSE)\n",
+        "#The next step makes the working directory\n",
+        "setwd(project_path)\n",
+        "getwd()\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 34
+        },
+        "id": "HOG8L7BEs8Hh",
+        "outputId": "e2b719fd-ab7c-4772-ec60-286b28936f82"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "display_data",
+          "data": {
+            "text/html": [
+              "'/content/drive/MyDrive/coral_spawning'"
+            ],
+            "text/markdown": "'/content/drive/MyDrive/coral_spawning'",
+            "text/latex": "'/content/drive/MyDrive/coral\\_spawning'",
+            "text/plain": [
+              "[1] \"/content/drive/MyDrive/coral_spawning\""
+            ]
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#creating subfolders\n",
+        "dir.create(\"raw_data\", showWarnings = FALSE) #original data, never edited\n",
+        "dir.create(\"clean_data\", showWarnings = FALSE) #outputs of 1_data_clean\n",
+        "dir.create(\"figures\", showWarnings = FALSE) #plots and tables\n",
+        "dir.create(\"scripts\", showWarnings = FALSE) #all notebooks, numbered\n",
+        "dir.create(\"archive\", showWarnings = FALSE) #contains info not being used\n",
+        "\n",
+        "list.files()\n",
+        "list.files(\"raw_data\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 69
+        },
+        "id": "KNC7gnZvuv5X",
+        "outputId": "ce153101-5655-4fb8-c7e5-fc2793dc5933"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "display_data",
+          "data": {
+            "text/html": [
+              "<style>\n",
+              ".list-inline {list-style: none; margin:0; padding: 0}\n",
+              ".list-inline>li {display: inline-block}\n",
+              ".list-inline>li:not(:last-child)::after {content: \"\\00b7\"; padding: 0 .5ex}\n",
+              "</style>\n",
+              "<ol class=list-inline><li>'archive'</li><li>'clean_data'</li><li>'figures'</li><li>'raw_data'</li><li>'scripts'</li></ol>\n"
+            ],
+            "text/markdown": "1. 'archive'\n2. 'clean_data'\n3. 'figures'\n4. 'raw_data'\n5. 'scripts'\n\n\n",
+            "text/latex": "\\begin{enumerate*}\n\\item 'archive'\n\\item 'clean\\_data'\n\\item 'figures'\n\\item 'raw\\_data'\n\\item 'scripts'\n\\end{enumerate*}\n",
+            "text/plain": [
+              "[1] \"archive\"    \"clean_data\" \"figures\"    \"raw_data\"   \"scripts\"   "
+            ]
+          },
+          "metadata": {}
+        },
+        {
+          "output_type": "display_data",
+          "data": {
+            "text/html": [
+              "'CREMP_SCOR_RawData_2024.csv'"
+            ],
+            "text/markdown": "'CREMP_SCOR_RawData_2024.csv'",
+            "text/latex": "'CREMP\\_SCOR\\_RawData\\_2024.csv'",
+            "text/plain": [
+              "[1] \"CREMP_SCOR_RawData_2024.csv\""
+            ]
+          },
+          "metadata": {}
+        }
+      ]
+    }
+  ]
+}
